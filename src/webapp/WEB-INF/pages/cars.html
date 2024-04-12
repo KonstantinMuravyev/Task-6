@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Cars</title>
+    <!--Указываем браузеру стилии
+    * Заголовк H1 размещаем по центру
+    * таблицу ограничиваем шириной 300px
+    * устанавливаем рамку вокруг таблицы шириной 1px, черного цвета
+    * устанавливаем отступ внутри ячейки таблицы 3px-->
+    <style type="text/css">
+        H1 {
+            text-align: center;
+        }
+
+        TABLE {
+            width: 300px;
+            border: 1px solid black;
+        }
+
+        TD, TH {
+            padding: 3px;
+        }
+    </style>
+</head>
+<!-- Создаем и заполняем нашу таблицу динамически с помощью Thymeleaf -->
+<body>
+<h1>Table Cars</h1>
+<table>
+    <tr>
+        <th>Model</th>
+        <th>Series</th>
+        <th>Year</th>
+    </tr>
+    <tr th:each="car : ${cars}">
+        <td th:utext="${car.getModel}"></td>
+        <td th:utext="${car.getColor()}"></td>
+        <td th:utext="${car.getYear}"></td>
+    </tr>
+</table>
+</body>
+</html>
